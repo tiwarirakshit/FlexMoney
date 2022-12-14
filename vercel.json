@@ -1,10 +1,10 @@
 {
     "version": 2,
-    "name": "Felx-Money",
+    "name": "Flex-Money",
     "builds": [
        { "src": "app.js", "use": "@vercel/node" }
     ],
     "routes": [
-       { "src": "/(.*)", "dest": "src/app.js" }
+       { "src": "/(.*)", "dest": "/src/app.js" }
     ]
  }
