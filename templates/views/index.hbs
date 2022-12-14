@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlexMoney Assignment</title>
+    <link rel="stylesheet" href="/login-signup.css">
+</head>
+<body>
+<div class="container" id="container">
+	<div class="form-container sign-up-container">
+		<form action="/signUp" method="post">
+			<h1>Create Account</h1>
+			<input type="text"  required name="name" placeholder="Name" />
+			<input type="email" required name ="email" placeholder="Email" />
+            <input type="number" size="4" name="age" min="18" max="65" required placeholder="Age">
+            <input type="gender"  required name="gender" placeholder="Gender">
+            <input type="text"  required name="batch" list="batch" placeholder="Batch">
+            <datalist id="batch">
+            <option value="06:00AM - 07:00AM">
+            <option value="07:00AM - 08:00AM">
+            <option value="08:00AM - 09:00AM">
+            <option value="05:00PM - 06:00PM"> 
+            </datalist>
+			<button type="submit">Complete Your Payment</button>
+            <script>  </script>
+		</form>
+	</div>
+	<div class="form-container sign-in-container">
+		<form action="/Login" method="post">
+			<h1>Sign in</h1>
+			<input type="email" name="email" placeholder="Email" />
+			<button type="submit">Sign In</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-left">
+				<h1>Welcome Back!</h1>
+				<p>To keep connected with us please login with your personal info</p>
+				<button class="ghost" id="signIn">Sign In</button>
+			</div>
+			<div class="overlay-panel overlay-right">
+				<h1>Hello, Friend!</h1>
+				<p>Enter your personal details and start you Gymming journey with us</p>
+				<button class="ghost" id="signUp">Sign Up</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script src="/login-signup.js"></script>
+</body>
+</html>
