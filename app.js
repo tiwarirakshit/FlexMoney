@@ -24,7 +24,7 @@ app.use(cookieParser("random"));
 const server = http.createServer(app);
 
 // db
-require("./db/conn");
+require("./src/db/conn");
 
 const static_path = path.join(__dirname, "../public");
 const template_path = path.join(__dirname, "../templates/views");
@@ -77,7 +77,7 @@ app.use(function (req, res, next) {
 });
 
 // routes
-app.use(require("./routes/routes"));
+app.use(require("./src/routes/routes"));
 
 
 // catch 404 and forward to error handler
