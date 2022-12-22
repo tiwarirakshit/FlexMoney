@@ -1,8 +1,4 @@
-const { response } = require("express");
-const express = require("express");
 const user = require("../models/user");
-require('dotenv').config();
-
 
 // home get method
 const home = (req, res) => {

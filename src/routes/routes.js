@@ -15,6 +15,7 @@ const {
 
 //  home controller
 router.get('/', home);
+
 router.get('/profile/:email', profile);
 //  about get controller
 router.get('/payment/:email', getPayment);

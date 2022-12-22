@@ -5,10 +5,8 @@ var morgan = require('morgan')
 var cors = require('cors')
 const PORT = process.env.PORT || 3000;
 const hbs = require("hbs");
-const favicon = require("serve-favicon");
 const http = require("http");
 const path = require('path');
-const flash = require("connect-flash");
 var session = require("express-session");
 const cookieParser = require("cookie-parser");
 var MemoryStore = require("connect-mongo");
@@ -26,21 +24,19 @@ const server = http.createServer(app);
 // db
 require("./src/db/conn");
 
-const static_path = path.join(__dirname, "../public");
-const template_path = path.join(__dirname, "../templates/views");
-// const partial_path = path.join(__dirname, "../templates/partials");
+const static_path = path.join(__dirname, "./public");
+const template_path = path.join(__dirname, "./templates/views");
+
+console.log(template_path)
 
 app.use(express.static(static_path));
 //! set Template engine
 
 app.set("view engine", "hbs");
 app.set("views", template_path);
-// hbs.registerPartials(partial_path);
+
 
 app.use(cookieParser("random"));
-// favicon
-// app.use(favicon(path.join(__dirname, ".././public", "favicon.png")));
-
 
 
 app.use(
@@ -58,8 +54,6 @@ app.use(
 );
 
 
-app.use(flash());
-
 // global middleware
 app.use((req, res, next) => {
     res.locals.session = req.session;
@@ -70,9 +64,6 @@ app.use((req, res, next) => {
 app.use(function (req, res, next) {
     res.locals.session = req.session;
     res.locals.user = req.user;
-    res.locals.success_messages = req.flash("success_messages");
-    res.locals.error_messages = req.flash("error_messages");
-    res.locals.error = req.flash("error");
     next();
 });
 
